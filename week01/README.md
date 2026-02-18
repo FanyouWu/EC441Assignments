@@ -38,7 +38,7 @@ tracert google.com
 tracert www.bilibili.com
 
 ### Screenshot
-![Traceroute Results](screenshots/7c092c5999ca0ea42ecea515a05aa020.png)
+![Traceroute Results](9088cade9b8f62c7c79e8465c6bc3bbe.png)
 
 ### Observations
 - Multiple hops can be seen between the local machine and the destination.
@@ -62,16 +62,17 @@ ping -n 4 8.8.8.8
 ![ICMP Capture](screenshots/4f118bf1018954d88231adce4ccb9ed1.png)
 
 ### Observations
-- ICMP Echo Request (Type 8) and Echo Reply (Type 0) packets were observed.
-- The TTL field decreases as packets pass through routers, preventing infinite routing loops.
-- Sequence numbers increase with each request, confirming packet order.
-- Packet-level inspection reveals protocol details not visible from command-line tools alone.
+- ICMP echo request and reply packets are captured successfully.
+- The source and destination addresses match the ping command.
+- The TTL value decreases across routers, which prevents packets from looping forever.
+- Packet details in Wireshark provide more information than command-line tools.
 
 ---
 
 ## Conclusion
-This experiment demonstrates how ICMP is used to test connectivity and measure latency, and how traceroute reveals routing paths through TTL expiration.  
-Wireshark enables direct inspection of packet headers and protocol behavior, providing deeper insight into real network communication.
+This lab shows how ping and traceroute work in real networks and how ICMP is used for connectivity testing.  
+Using Wireshark makes it possible to directly see packet headers and protocol behavior, which helps understand how data actually travels on the Internet.
+
 
 ---
 
