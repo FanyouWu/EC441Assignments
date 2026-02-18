@@ -38,7 +38,7 @@ tracert google.com
 tracert www.bilibili.com
 
 ### Screenshot
-![Traceroute Results](screenshots/YOUR_TRACEROUTE_IMAGE.png)
+![Traceroute Results](screenshots/7c092c5999ca0ea42ecea515a05aa020.png)
 
 ### Observations
 - Multiple hops can be seen between the local machine and the destination.
@@ -59,7 +59,7 @@ While capturing packets, the following command was executed:
 ping -n 4 8.8.8.8
 
 ### Screenshot
-![ICMP Capture](screenshots/YOUR_ICMP_IMAGE.png)
+![ICMP Capture](screenshots/4f118bf1018954d88231adce4ccb9ed1.png)
 
 ### Observations
 - ICMP Echo Request (Type 8) and Echo Reply (Type 0) packets were observed.
