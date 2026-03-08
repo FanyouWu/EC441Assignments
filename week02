@@ -1,1 +1,70 @@
+# EC441 – Week 2 Artifact  
+## Topic: CRC Error Detection (Link Layer)
 
+## Problem
+
+A sender wants to transmit the following data bits using a CRC error detection scheme.
+
+Data:
+
+1011010110
+
+
+Generator polynomial:
+
+1101
+
+
+(a) Determine the number of CRC bits that will be appended to the data.
+
+Answer:
+
+
+3 bits
+
+
+(b) Show the augmented data after appending the required number of zeros.
+
+Answer:
+
+
+1011010110000
+
+
+(c) Perform the modulo-2 division of the augmented data by the generator polynomial.
+
+Answer:
+
+
+1011010110000 ÷ 1101
+
+
+(d) Determine the CRC remainder.
+
+Answer:
+
+
+110
+
+
+(e) Write the final transmitted bit sequence.
+
+Answer:
+
+
+1011010110110
+
+
+(f) Suppose the receiver obtains the following bit sequence:
+
+
+1011010110101
+
+
+Explain whether an error is detected.
+
+Answer:
+
+
+Remainder = 011
+Error detected
