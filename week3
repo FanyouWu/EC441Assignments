@@ -1,0 +1,92 @@
+# EC441 – Week X Artifact  
+## Topic: Reliable Data Transfer (Stop-and-Wait ARQ)
+
+A sender uses the Stop-and-Wait protocol to transmit data to a receiver over a network.
+
+Assume the following:
+
+- Data packet transmission time = 1 ms  
+- Propagation delay (one-way) = 4 ms  
+- ACK transmission time = negligible  
+
+(a) What is the total time from sending one data packet until the sender can send the next packet?
+
+Answer:
+
+```
+9 ms
+```
+
+Explanation:
+
+The sender spends 1 ms transmitting the data packet.  
+Then the packet takes 4 ms to propagate to the receiver.  
+The ACK transmission time is negligible, and the ACK then takes another 4 ms to propagate back.
+
+So the total time is:
+
+```
+1 + 4 + 4 = 9 ms
+```
+
+(b) What is the utilization of the sender?
+
+Answer:
+
+```
+1/9 ≈ 0.111 = 11.1%
+```
+
+Explanation:
+
+The sender is only actively transmitting for 1 ms during the whole 9 ms cycle.
+
+So utilization is:
+
+```
+1 / 9 ≈ 0.111
+```
+
+or about:
+
+```
+11.1%
+```
+
+(c) Why is Stop-and-Wait inefficient for long-distance communication?
+
+Answer:
+
+```
+Because the sender spends most of the time waiting instead of transmitting.
+```
+
+Explanation:
+
+When propagation delay is large, the sender finishes sending quickly but must wait a long time for the ACK to return.  
+This means the link is idle most of the time, so efficiency is low.
+
+(d) How does a sliding window protocol improve performance?
+
+Answer:
+
+```
+It allows the sender to send multiple packets before waiting for ACKs.
+```
+
+Explanation:
+
+Instead of sending one packet and stopping, the sender can keep transmitting several packets in a row.  
+This reduces idle time and increases link utilization.
+
+(e) What would happen if the ACK is lost?
+
+Answer:
+
+```
+The sender will retransmit the same packet after a timeout.
+```
+
+Explanation:
+
+In Stop-and-Wait, if the sender does not receive an ACK in time, it assumes the packet or ACK was lost and sends the packet again.
