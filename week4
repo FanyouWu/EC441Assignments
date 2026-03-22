@@ -1,0 +1,137 @@
+# EC441 – Week X Artifact  
+## Topic: Network Layer (IP Addressing & Subnetting)
+
+A network is given the IP address block:
+
+```
+192.168.1.0/24
+```
+
+Answer the following questions.
+
+(a) How many total IP addresses are available in this network?
+
+Answer:
+
+```
+256
+```
+
+Explanation:
+
+A /24 network means there are 32 − 24 = 8 bits for host addresses.
+
+So the total number of addresses is:
+
+```
+2^8 = 256
+```
+
+---
+
+(b) How many usable host addresses are available?
+
+Answer:
+
+```
+254
+```
+
+Explanation:
+
+Two addresses are reserved:
+
+- Network address (192.168.1.0)
+- Broadcast address (192.168.1.255)
+
+So usable hosts:
+
+```
+256 − 2 = 254
+```
+
+---
+
+(c) What is the subnet mask?
+
+Answer:
+
+```
+255.255.255.0
+```
+
+Explanation:
+
+/24 means the first 24 bits are 1s in the subnet mask:
+
+```
+11111111.11111111.11111111.00000000
+```
+
+Which equals:
+
+```
+255.255.255.0
+```
+
+---
+
+(d) What is the broadcast address of this network?
+
+Answer:
+
+```
+192.168.1.255
+```
+
+Explanation:
+
+The broadcast address is obtained by setting all host bits to 1.
+
+---
+
+(e) If the network is divided into 4 equal subnets, what is the new subnet prefix?
+
+Answer:
+
+```
+/26
+```
+
+Explanation:
+
+To create 4 subnets, we need 2 additional bits:
+
+```
+/24 + 2 = /26
+```
+
+---
+
+(f) How many hosts are available in each subnet?
+
+Answer:
+
+```
+62
+```
+
+Explanation:
+
+With /26, there are:
+
+```
+32 − 26 = 6 host bits
+```
+
+Total addresses per subnet:
+
+```
+2^6 = 64
+```
+
+Usable hosts:
+
+```
+64 − 2 = 62
+```
