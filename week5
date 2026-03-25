@@ -1,0 +1,103 @@
+# EC441 – Week 5 Artifact  
+## Topic: Application Layer (HTTP)
+
+A client wants to retrieve a webpage from a web server using HTTP.
+
+Assume the following:
+
+- The webpage consists of 1 HTML file and 3 embedded images  
+- Each object requires a separate HTTP request  
+- RTT (round-trip time) = 50 ms  
+- Transmission time is negligible  
+
+(a) How many RTTs are needed to retrieve the HTML file using non-persistent HTTP?
+
+Answer:
+
+```
+2 RTTs
+```
+
+Explanation:
+
+1 RTT for TCP connection setup  
+1 RTT for HTTP request and response  
+
+---
+
+(b) How many RTTs are needed to retrieve all 3 images using non-persistent HTTP?
+
+Answer:
+
+```
+6 RTTs
+```
+
+Explanation:
+
+Each image requires a new TCP connection:
+
+2 RTTs per image × 3 images = 6 RTTs  
+
+---
+
+(c) What is the total time (in RTTs) to load the entire webpage using non-persistent HTTP?
+
+Answer:
+
+```
+8 RTTs
+```
+
+Explanation:
+
+HTML file: 2 RTTs  
+Images: 6 RTTs  
+
+Total:
+
+```
+2 + 6 = 8 RTTs
+```
+
+---
+
+(d) How does persistent HTTP improve performance?
+
+Answer:
+
+```
+It allows multiple objects to be sent over a single TCP connection.
+```
+
+Explanation:
+
+Instead of creating a new connection for each object, the same connection is reused, reducing connection setup overhead.
+
+---
+
+(e) What is pipelining in HTTP?
+
+Answer:
+
+```
+Sending multiple HTTP requests without waiting for previous responses.
+```
+
+Explanation:
+
+This reduces delay because the client does not wait for each response before sending the next request.
+
+---
+
+(f) Why is HTTP considered a stateless protocol?
+
+Answer:
+
+```
+Because the server does not remember previous client requests.
+```
+
+Explanation:
+
+Each request is handled independently. The server does not store session information unless additional mechanisms (like cookies) are used.
