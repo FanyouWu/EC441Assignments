@@ -1,0 +1,22 @@
+EC441 Week X – Problem: Routing
+
+What is the difference between forwarding and routing?
+Answer: Forwarding is the process of moving a packet from an incoming link to the appropriate outgoing link, while routing is the process of determining the path that packets should take through the network.
+What is a forwarding table?
+Answer: A forwarding table is a data structure in a router that maps destination addresses to outgoing interfaces, allowing the router to forward packets efficiently.
+What is the difference between distance-vector and link-state routing protocols?
+Answer: Distance-vector protocols exchange information only with neighbors and use distance metrics, while link-state protocols have a complete view of the network topology and compute shortest paths using algorithms like Dijkstra.
+What is the main idea of Dijkstra’s algorithm in routing?
+Answer: Dijkstra’s algorithm finds the shortest path from a source node to all other nodes by iteratively selecting the node with the smallest known distance and updating its neighbors.
+What is a routing loop and why is it a problem?
+Answer: A routing loop occurs when packets circulate indefinitely between routers, causing network congestion and wasting resources.
+What is the count-to-infinity problem?
+Answer: The count-to-infinity problem occurs in distance-vector routing when routers slowly increase distance values to a failed node, leading to slow convergence.
+What is split horizon and how does it help?
+Answer: Split horizon prevents a router from advertising a route back to the neighbor from which it was learned, reducing routing loops.
+What is the purpose of ICMP in routing?
+Answer: ICMP is used for error reporting and network diagnostics, such as informing a sender that a destination is unreachable.
+What is the difference between static routing and dynamic routing?
+Answer: Static routing uses manually configured routes, while dynamic routing automatically updates routes based on network changes.
+What is convergence in routing?
+Answer: Convergence is the process by which all routers in a network reach a consistent view of the network topology.
