@@ -1,0 +1,86 @@
+Homework: Traceroute & TTL 
+Q1. Basic Concepts
+(a) What is TTL? What is its purpose?
+
+Answer:
+TTL is a number in the IP packet that decreases every time the packet goes through a router. Its purpose is to make sure packets don’t loop forever in the network.
+
+(b) What happens when TTL reaches 0?
+
+Answer:
+When TTL becomes 0, the router drops the packet and sends back an ICMP Time Exceeded message to the sender.
+
+(c) What role does ICMP play in traceroute?
+
+Answer:
+ICMP is used to tell the sender which router dropped the packet, so traceroute can know each hop on the path.
+
+Q2. Traceroute Mechanism
+
+Path:
+
+A → R1 → R2 → R3 → R4 → Dest
+
+(a) What happens when TTL = 1?
+
+Answer:
+The packet reaches R1 and TTL becomes 0. R1 drops it and sends an ICMP message back. So traceroute knows R1 is the first hop.
+
+(b) What happens when TTL = 2?
+
+Answer:
+The packet goes to R1, then R2. At R2 the TTL becomes 0, so R2 drops it and sends ICMP back. So traceroute knows R2 is the second hop.
+
+(c) How does traceroute know it has reached the destination?
+
+Answer:
+When the packet finally reaches the destination, TTL does not become 0. Instead, the destination sends back a different message (like ICMP Port Unreachable), so traceroute knows it reached the final node.
+
+Q3. True / False
+(a) Traceroute uses TTL to limit the maximum hop count
+
+Answer: False. TTL is originally for preventing loops, but traceroute uses it to find hops.
+
+(b) Each hop returns a TCP packet
+
+Answer: False. It returns ICMP, not TCP.
+
+(c) Traceroute always works in all networks
+
+Answer: False. Sometimes it doesn’t work if ICMP is blocked or routers don’t reply.
+
+(d) Traceroute measures RTT
+
+Answer: True. It measures how long it takes to send a packet and get a reply.
+
+Q4. RTT Measurement
+
+Hop 3: 12 ms, 14 ms, 13 ms
+
+(a) Why send 3 probes?
+
+Answer:
+To make it more reliable and also see if the delay changes.
+
+(b) How should these RTT values be interpreted?
+
+Answer:
+They are the round-trip times to that hop. The average is about 13 ms, and the differences show some variation in the network.
+
+Q5. Key Concept
+
+Why can traceroute identify each hop?
+
+Answer:
+Because when a router drops a packet (TTL = 0), it sends back an ICMP message with its own IP address. So traceroute can see which router it was.
+
+Q6. UDP vs ICMP
+(a) Why use UDP?
+
+Answer:
+UDP is simpler and doesn’t need a connection, so it’s easier to use for sending probes.
+
+(b) Why is the last hop different?
+
+Answer:
+At the last hop, the packet reaches the destination, so TTL doesn’t expire. The destination sends back a different message (like port unreachable), so traceroute knows it’s the end.
